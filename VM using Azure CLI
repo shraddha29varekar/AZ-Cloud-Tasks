@@ -1,0 +1,57 @@
+Azure VM  - using the CLI
+----------------------------
+CLI ==> Command line Interfacae
+
+Definition 
+------------
+ Azure CLI is microdoft cross platform command line experiance for managing azure resources.
+
+Advantages of using CLI
+-----------------------
+  > to shedule tasks 
+  > automate tasks
+  > deploy  (huge volume) in single click
+
+Available in :
+>> Mac  / Wind / Linux 
+
+
+we can use the CLI using either of the below 
+__________________________________________
+1 - CLI from  portal
+2 - Download EXE of CLI
+3 - powershell
+4 - commandd prompt
+
+Some Basic CLI Commands
+______________________
+Note : cli commands start wit az
+
+1 - az login			  >> To login and connect to a subscription
+2 - az --help or -h		  >> Display all the azure sub tasks
+3 - az account    		  >> to manage the account
+4 - az group 			  >> To manage group  (all these options have many sub options , we can list them using -h, ie : az group -h)
+5 - az group list --query[].name  >> only to show the name of the resource group
+6 - az group create 		  >> to create a new group , There are some values are manadatory like the region  , name of the new group etc. 
+7 - az interactive   		  >> To make the CLI to more interactive with predictions and lists
+8 - az group -o table 		  >> to view the group contents in a table format  (-o is usd to specify the output type , json , yaml , table etc ..)
+9 - az vm 			  >> to Manage Virtual machines
+10- az logout			  >> To logout from a subscription
+
+TASK :
+Q : create a group named MyGroup and create a VM MyCLIvm Inside the same resource group
+Ans :
+az login 
+(once you logged in follow the next commands)
+
+az group create -l WestUs -n MyGroup
+
+az vm create -n MyCLIvm -g MyGroup --image ubuntuLTS --username admin --generate-ssh-keys
+
+az group list
+
+To delete the VM along with the resource  we can use the below command  
+
+az group delete --name MyGroup
+
+
